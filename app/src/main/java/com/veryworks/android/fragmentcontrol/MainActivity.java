@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         // 2. 프래그먼트를 레이아웃에 add 한다
         transaction.add(R.id.fragment, list);
-        // 3. 커밋전에 트랜잭션 전체를 stack 에 저장을 합니다.
-        transaction.addToBackStack(null);
-        // 4. git 의 commit 과 같은 기능
+        // 최초 호출되는 프래그먼트는 addToBackStack 을 사용하지 않는다
+        //transaction.addToBackStack(null);
+        // 3. git 의 commit 과 같은 기능
         transaction.commit();
     }
 
