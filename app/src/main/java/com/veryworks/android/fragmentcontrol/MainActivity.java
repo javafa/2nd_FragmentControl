@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Detail 프래그먼트에서 List 로 돌아갈때
     public void backToList(){
-        // 스택을 빼내면 된다
+        // 스택을 빼내면 된다 - popBackStack 에 해당하는 함수이다.
         super.onBackPressed();
 //        // 1. 프래그먼트를 실행하기위한 트랜잭션 시작
 //        FragmentTransaction transaction = manager.beginTransaction();
