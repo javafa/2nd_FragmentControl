@@ -7,22 +7,66 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    // datas 변수를 MainActivity 에 정의
+    // 1. 사용할 프래그먼트 선언
+    ListFragment list;
+    DetailFragment detail;
+
+    FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. 프래그먼트 생성
+        // 2. 프래그먼트 생성
+        list = new ListFragment();
+        detail = new DetailFragment();
+        // 리스트 프래그먼트에 나자신을 넘겨준다.
+        list.setActivity(this);
+        detail.setActivity(this);
 
-        // 2. 프래그먼트 매니저 가져오기
+        // 3. 프래그먼트 매니저 가져오기
+        manager = getSupportFragmentManager();
 
-        // 3. 프래그먼트를 실행하기위한 트랜잭션 시작
 
-        // 4. 프래그먼트를 레이아웃에 add 한다
-
-        // 5. git 의 commit 과 같은 기능
-
+        setList();
     }
+
+    // Activity 에 처음 목록이 세팅될때
+    public void setList(){
+        // 1. 프래그먼트를 실행하기위한 트랜잭션 시작
+        FragmentTransaction transaction = manager.beginTransaction();
+        // 2. 프래그먼트를 레이아웃에 add 한다
+        transaction.add(R.id.fragment, list);
+        // 3. 커밋전에 트랜잭션 전체를 stack 에 저장을 합니다.
+        transaction.addToBackStack(null);
+        // 4. git 의 commit 과 같은 기능
+        transaction.commit();
+    }
+
+    // 리스트에서 상세로 이동할때
+    public void goDetail(){
+        // 1. 프래그먼트를 실행하기위한 트랜잭션 시작
+        FragmentTransaction transaction = manager.beginTransaction();
+        // 2. 프래그먼트를 레이아웃에 add 한다
+        transaction.add(R.id.fragment, detail);
+        // 3. 커밋전에 트랜잭션 전체를 stack 에 저장을 합니다.
+        transaction.addToBackStack(null);
+        // 4. git 의 commit 과 같은 기능
+        transaction.commit();
+    }
+
+    // Detail 프래그먼트에서 List 로 돌아갈때
+    public void backToList(){
+        // 스택을 빼내면 된다
+        super.onBackPressed();
+//        // 1. 프래그먼트를 실행하기위한 트랜잭션 시작
+//        FragmentTransaction transaction = manager.beginTransaction();
+//        // 2. detail 프래그먼트를 스택에서 제거한다
+//        transaction.remove(detail);
+//        // 3. 커밋
+//        transaction.commit();
+    }
+
+
 }
