@@ -10,18 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class DetailFragment extends Fragment {
-
-    private OnDetailListener mListener;
-
     public DetailFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        return view;
     }
 
     @Override
@@ -30,8 +20,11 @@ public class DetailFragment extends Fragment {
 
     }
 
-    public interface OnDetailListener {
-        void goList();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_detail, container, false);
+        return view;
     }
 
     @Override

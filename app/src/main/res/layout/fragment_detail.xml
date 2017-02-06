@@ -6,12 +6,6 @@
     android:background="#ffffff">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detail Fragment"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:id="@+id/textView" />
 
     <Button
         android:text="Go List"
@@ -20,5 +14,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/btnList" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail Fragment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/textView"
+        android:layout_above="@+id/btnList"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp" />
 
 </RelativeLayout>
