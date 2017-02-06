@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         // 2. 프래그먼트를 레이아웃에 add 한다
         transaction.add(R.id.fragment, detail);
-        // 3. 커밋전에 트랜잭션 전체를 stack 에 저장을 합니다.
+        // 3. 커밋전에 트랜잭션 전체를 stack 에 저장을 합니다. 뒤로가기시 스택관리를 할 수 있습니다.
         transaction.addToBackStack(null);
         // 4. git 의 commit 과 같은 기능
         transaction.commit();
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Detail 프래그먼트에서 List 로 돌아갈때
     public void backToList(){
-        // 스택을 빼내면 된다 - popBackStack 에 해당하는 함수이다.
+        // 뒤로가기로 스택을 빼내면 된다 - popBackStack 에 해당하는 함수이다.
         super.onBackPressed();
 //        // 1. 프래그먼트를 실행하기위한 트랜잭션 시작
 //        FragmentTransaction transaction = manager.beginTransaction();
